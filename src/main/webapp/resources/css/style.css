@@ -1,0 +1,130 @@
+@CHARSET "UTF-8";
+
+body {
+	background-image: url("../img/bg.jpg");
+  	background-size: 100%;
+  	background-attachment: fixed;
+}
+
+.menu {
+	padding-top: 30px;
+}
+
+#iconos_container {
+	display: table;
+	width: 100%;
+	height: 600px;
+}
+
+.icono {
+	text-align: center;
+	background-color: rgba(255,255,255,0.4);
+	padding-top: 20px;
+}
+
+#iconos {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+}
+
+#iconos img {
+	height: 100px;
+}
+
+#login {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	margin-left: -200px;
+	margin-top: -140px;
+	z-index: 2;
+}
+
+#register {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	margin-left: -200px;
+	margin-top: -160px;
+	z-index: 2;
+}
+
+#about {
+	display: table;
+	width: 100%;
+	background-color: #334960;
+	color: #ffffff;
+}
+
+#about h3 {
+	color: #ffffff;
+}
+
+#about_content {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+}
+
+#team {
+	display: table;
+	width: 100%;
+	background-color: #f17c72;
+	color: #ffffff;
+}
+
+#team h3 {
+	color: #ffffff;
+}
+
+#team_content {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+}
+
+#contact {
+	display: table;
+	width: 100%;
+	background-color: #32ac97;
+	color: #ffffff;
+}
+
+#contact h3 {
+	color: #ffffff;
+}
+
+#contact_content {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+}
+
+#footer {
+	display: table;
+	width: 100%;
+	height: 100px;
+	background-color: #333333;
+	color: #ffffff;
+}
+
+#footer h3 {
+	color: #ffffff;
+}
+
+#footer_content {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+}
