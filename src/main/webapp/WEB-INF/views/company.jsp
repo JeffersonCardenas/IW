@@ -5,9 +5,19 @@
     <link rel="stylesheet" href="resources/css/company.css" />
     <script>
     $('document').ready(function(){
-    	loadXMLDoc('desktop');
-    	var height = $( window ).height();
-    	document.getElementById('admin_content').style.minHeight = height + 'px';
+    	var url = 'content/desktop';
+		var param = "p="+${u.id};
+    	loadXMLDocs(url,param);
+    });
+    </script>
+    <script>
+    $(function(){
+    	$(".item").click(function() {
+    		var dest = $(this).attr("id").substring("i_".length);
+    		var url = 'content/' + dest;
+    		var param = "p="+${u.id};
+        	loadXMLDocs(url, param);    		
+    	})
     });
     </script>
 </head>
@@ -26,16 +36,14 @@
 	
 	    <aside class="left-off-canvas-menu">
 	      <ul class="off-canvas-list">
-	      	<li><a href="#" onclick = "loadXMLDoc('desktop'); initScheduler();">Escritorio</a></li>
 	      	<li><a href="index">Home</a>
+	      	<li><a href="business?u=${usuario.id}">Mis Locales</a>
 	        <li><label>Paginas</label></li>
-			<li><a href="#" onclick = "loadXMLDoc('admin_welcome')">Bienvenido</a></li>
-			<li><a href="#" onclick = "loadXMLDoc('admin_about')">Sobre Nosotros</a></li>
-			<li><a href="#" onclick = "loadXMLDoc('admin_services')">Servicios</a></li>
-			<li><a href="#" onclick = "loadXMLDoc('admin_map')">Donde Estamos</a></li>
-			<li><a href="#" onclick = "loadXMLDoc('admin_booking')">Reserva</a></li>
+			<li><div class="item" id="i_desktop"><a href="#">Agenda</a></div></li>
+			<li><div class="item" id="i_admin_services"><a href="#">Servicios</a></div></li>
+			<li><div class="item" id="i_admin_map"><a href="#">Donde Estamos</a></div></li>
 			<li><label>Configuracion</label></li>
-			<li><a href="#" onclick = "loadXMLDoc('admin_profile')">Perfil</a></li>
+			<li><div class="item" id="i_admin_profile"><a href="#">Perfil</a></div></li>
 	      </ul>
 	    </aside>
 	

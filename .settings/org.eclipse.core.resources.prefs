@@ -1,12 +1,9 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/views/admin.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/company.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/content/admin_about.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/content/admin_booking.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/content/admin_map.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/content/admin_profile.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/content/admin_services.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/content/admin_welcome.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/index.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/place.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/search.jsp=UTF-8

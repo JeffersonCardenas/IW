@@ -2,7 +2,7 @@
 <Context>  	
     	<Resource auth="Container" 
     		driverClassName="org.hsqldb.jdbc.JDBCDriver" 
-    		name="jdbc/demoDS" type="javax.sql.DataSource" 
-    		url="jdbc:hsqldb:mem:iw;create=true" 
+    		name="jdbc/demoDS" type="javax.sql.DataSource"
+    		url="jdbc:hsqldb:mem:iw;create=true"
     		username="sa" password=""/>
 </Context>

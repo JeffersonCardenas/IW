@@ -37,8 +37,33 @@
 				    <dd data-magellan-arrival="about"><a href="#about">Sobre Reserving</a></dd>
 				    <dd data-magellan-arrival="team"><a href="#team">El equipo</a></dd>
 				    <dd data-magellan-arrival="contact"><a href="#contact">Escríbenos</a></dd>
-				    <dd data-magellan-arrival="login"><a href="#" onclick = "document.getElementById('login').style.display = 'block'">Login</a></dd>
-				    <dd data-magellan-arrival="register"><a href="#" onclick = "document.getElementById('register').style.display = 'block'">Registro</a></dd>
+				    <c:choose>
+				    <c:when test="${not empty usuario}">
+						<dd data-magellan-arrival="saludo">
+							<c:choose>
+							<c:when test="${usuario.rol == 'user'}">
+								<a href="${prefix}user">${e:forHtmlContent(usuario.nombre)}</a>
+								( <a href="${prefix}logout">Salir</a> )
+							</c:when>
+							<c:when test="${usuario.rol == 'admin' }">
+								<a href="${prefix}admin">${e:forHtmlContent(usuario.rol)}</a>
+								( <a href="${prefix}logout">Salir</a> )
+							</c:when>
+							<c:otherwise>
+								<a href="${prefix}business">${e:forHtmlContent(usuario.nombre)}</a>
+								( <a href="${prefix}logout">Salir</a> )
+							</c:otherwise>
+							</c:choose>
+						</dd>
+					</c:when>
+					<c:otherwise>
+						<dd data-magellan-arrival="login"><a href="#" onclick = "document.getElementById('login').style.display = 'block'">Login</a></dd>
+						<c:if test="${not empty loginError}">
+							<br><span class='errorLogin'>Login o contraseña incorrectos</span>
+						</c:if>
+					    <dd data-magellan-arrival="register"><a href="#" onclick = "document.getElementById('register').style.display = 'block'">Registro</a></dd>
+					</c:otherwise>
+					</c:choose>
 				</dl>
 	  		</div>
 	  	</div>
@@ -47,10 +72,10 @@
 	<div id = "iconos_container">
 		<div id = "iconos">
 			<div class = "row">
-				<div class = "large-3 columns icono"><a href = "search"><img src = "resources/img/restaurantes.png" alt = "restaurantes"><br><h3 onclick = "alert ('Restaurantes')">Restaurantes</h3></a></div>
-				<div class = "large-3 columns icono"><a href = "search"><img src = "resources/img/peluquerias.png" alt = "perluquerias"><br><h3>Peluquerías</h3></a></div>
-				<div class = "large-3 columns icono"><a href = "search"><img src = "resources/img/deportes.png" alt = "deportes"><br><h3>Deportes</h3></a></div>
-				<div class = "large-3 columns icono"><a href = "search"><img src = "resources/img/eventos.png" alt = "eventos"><br><h3>Eventos</h3></a></div>
+				<div class = "large-3 columns icono"><a href = "search?q=restaurante"><img src = "resources/img/restaurantes.png" alt = "restaurantes"><br><h3 onclick = "alert ('Restaurantes')">Restaurantes</h3></a></div>
+				<div class = "large-3 columns icono"><a href = "search?q=peluqueria"><img src = "resources/img/peluquerias.png" alt = "perluquerias"><br><h3>Peluquerías</h3></a></div>
+				<div class = "large-3 columns icono"><a href = "search?q=deportes"><img src = "resources/img/deportes.png" alt = "deportes"><br><h3>Deportes</h3></a></div>
+				<div class = "large-3 columns icono"><a href = "search?q=evento"><img src = "resources/img/eventos.png" alt = "eventos"><br><h3>Eventos</h3></a></div>
 			</div>
 		</div>
 	</div>
@@ -119,7 +144,7 @@
 	
 	<div id = "login" class = "panel">
 		<h3 class = "text-center">Login</h3>
-		<form method = "post" action = "company" data-abide id = "entrar">
+		<form method = "post" action = "login" data-abide id = "entrar">
 			<div class="row">
     			<div class="large-12 columns">
     				<div class="name-field">
@@ -147,7 +172,7 @@
 	
 	<div id = "register" class = "panel">
 		<h3 class = "text-center">Registro</h3>
-		<form method = "post" action = "" data-abide id = "registro">
+		<form method = "post" action = "register" data-abide id = "registro">
 			<div class="row">
     			<div class="large-12 columns">
     				<div class="name-field">
@@ -155,6 +180,15 @@
 							<input type = "text" name = "user" placeholder="Nombre de usuario" required autofocus>
 						</label>
 						<small class="error">El nombre es necesario.</small>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 columns">
+					<div class="name-field">
+						<label>Email
+							<input type="text" name="email" placeholder="Correo Electrónico">
+						</label>
 					</div>
 				</div>
 			</div>

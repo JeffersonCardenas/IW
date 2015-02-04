@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: #999966;
+}
+
+.space {
+	height: 40px;
+}
+
+.panel {
+	background-color: white;
+}

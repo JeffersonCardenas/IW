@@ -6,8 +6,16 @@
     <script>
     $('document').ready(function(){
     	loadXMLDoc('super_admin_desktop');
-    	var height = $( window ).height();
-    	document.getElementById('admin_content').style.minHeight = height + 'px';
+    });
+    </script>
+    <script>
+    $(function(){
+    	$(".item").click(function() {
+    		var dest = $(this).attr("id").substring("i_".length);
+    		var url = 'content/' + dest;
+    		var param = 'p='+${u.id};
+        	loadXMLDocs(url, param);
+    	})
     });
     </script>
 </head>
@@ -26,9 +34,10 @@
 	
 	    <aside class="left-off-canvas-menu">
 	      <ul class="off-canvas-list">
-	      	<li><a href="#" onclick = "loadXMLDoc('super_admin_desktop'); initScheduler();">Escritorio</a></li>
-			<li><a href="#" onclick = "loadXMLDoc('super_admin_business')">Negocios</a></li>
-			<li><a href="index">Home</a>
+	      	<li><a href="index">Home</a>
+	      	<li><div class="item" id="i_super_admin_desktop"><a href="#">Escritorio</a></div></li>
+			<li><div class="item" id="i_super_admin_business"><a href="#">Negocios</a></div></li>
+			<li><div class="item" id="i_super_admin_create"><a href="#">Insertar Local</a></div></li>
 	      </ul>
 	    </aside>
 	
