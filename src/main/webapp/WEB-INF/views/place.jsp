@@ -5,32 +5,44 @@
     <link rel="stylesheet" href="resources/css/place.css" />
     <script>
     $('document').ready(function(){
-    	loadXMLDoc('welcome');
+    		var url = 'content/about';
+    		var param = "p="+${q.id};
+        	loadXMLDocs(url, param);
+    });
+    </script>
+    <script>
+    $(function(){
+    	$(".item").click(function() {
+    		var dest = $(this).attr("id").substring("i_".length);
+    		var url = 'content/' + dest;
+    		var param = "p="+${q.id};
+        	loadXMLDocs(url, param);    		
+    	})
     });
     </script>
 </head>
 <body>
 	<div class="icon-bar five-up sticky">
-	  <a class="item" onclick = "loadXMLDoc('welcome')">
+	  <a class="item" href="index">
 	    <img src="resources/img/iconos_menu/welcome.png" >
-	    <label>Bienvenido</label>
+	    <label>Inicio</label>
 	  </a>
-	  <a class="item" onclick = "loadXMLDoc('about')">
+	  <div class="item" id="i_about">
 	    <img src="resources/img/iconos_menu/about.png" >
 	    <label>Sobre Nosotros</label>
-	  </a>
-	  <a class="item" onclick = "loadXMLDoc('services')">
+	  </div>
+	  <div class="item" id="i_services">
 	    <img src="resources/img/iconos_menu/services.png" >
 	    <label>Servicios</label>
-	  </a>
-	  <a class="item" onclick = "loadXMLDoc('map')">
+	  </div>
+	  <div class="item" id="i_map">
 	    <img src="resources/img/iconos_menu/map.png" >
 	    <label>Donde Estamos</label>
-	  </a>
-	  <a class="item" onclick = "loadXMLDoc('booking')">
+	  </div>
+	  <div class="item" id="i_booking">
 	    <img src="resources/img/iconos_menu/booking.png" >
 	    <label>Reserva</label>
-	  </a>
+	  </div>
 	</div>
 	
 	<div id = "content">

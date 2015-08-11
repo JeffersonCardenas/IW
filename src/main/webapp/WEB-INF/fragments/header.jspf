@@ -1,7 +1,17 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project" prefix="e" %>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${pageTitle}</title>
 <link rel="stylesheet" href="resources/css/foundation.css" />
 <script src="resources/js/vendor/modernizr.js"></script>
+<%-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --%>
+<script src="resources/js/jquery-1.11.2.min.js"></script>
+<script src="resources/js/jquery-1.11.2.js"></script>
 <script src="resources/js/functions.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="resources/js/funciones.js"></script>
+<script>
+	jQuery(function() {
+		${errorHomeController}
+	});
+</script>

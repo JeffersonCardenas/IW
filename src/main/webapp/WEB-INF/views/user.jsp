@@ -5,9 +5,8 @@
     <link rel="stylesheet" href="resources/css/user.css" />
     <script>
     $('document').ready(function(){
-    	loadXMLDoc('user_desktop');
-    	var height = $( window ).height();
-    	document.getElementById('admin_content').style.minHeight = height + 'px';
+    	var url='user_desktop'
+    	loadXMLDoc(url);
     });
     </script>
 </head>
@@ -26,12 +25,12 @@
 	
 	    <aside class="left-off-canvas-menu">
 	      <ul class="off-canvas-list">
-	      	<li><a href="#" onclick = "loadXMLDoc('user_desktop'); initScheduler();">Escritorio</a></li>
-	      	<li><a href="index">Home</a>
-			<li><a href="#" onclick = "loadXMLDoc('user_booking')">Reservas</a></li>
-			<li><a href="#" onclick = "loadXMLDoc('user_favorites')">Favoritos</a></li>
+			<li><a href="index">Home</a>
+			<li><a href="#" onclick="loadXMLDoc('user_desktop'); initScheduler();">Escritorio</a></li>
+			<li><a href="#" onclick="loadXMLDoc('user_booking')">Reservas</a></li>
+			<li><a href="#" onclick="loadXMLDoc('user_favorites')">Favoritos</a></li>
 			<li><label>Configuracion</label></li>
-			<li><a href="#" onclick = "loadXMLDoc('user_profile')">Perfil</a></li>
+			<li><a href="#" onclick="loadXMLDoc('user_profile')">Perfil</a></li>
 	      </ul>
 	    </aside>
 	

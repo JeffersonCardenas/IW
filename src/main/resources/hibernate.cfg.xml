@@ -12,6 +12,7 @@
 	<property name="hibernate.format_sql">true</property>	
 	
 	<!-- Auto-generate tables -->
+	<!-- <property name="hibernate.hbm2ddl.auto">create-drop</property>-->
 	<property name="hibernate.hbm2ddl.auto">create-drop</property>
 </session-factory>
 </hibernate-configuration>

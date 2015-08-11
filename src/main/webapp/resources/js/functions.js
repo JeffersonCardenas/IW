@@ -10,8 +10,8 @@ function changeBgHeight (div, height) {
  */
 function loadXMLDoc(menu) {
 	var xmlhttp;
-	var ref = ["welcome", "about", "services", "map", "booking", "desktop", "admin_welcome", "admin_about", "admin_services", "admin_map", "admin_booking", "admin_profile", "user_desktop", "user_booking", "user_favorites", "user_profile", "super_admin_desktop", "super_admin_business"];
-	var content = ["welcome", "about", "services", "map", "booking", "desktop", "admin_welcome", "admin_about", "admin_services", "admin_map", "admin_booking", "admin_profile", "user_desktop", "user_booking", "user_favorites", "user_profile", "super_admin_desktop", "super_admin_business"];
+	var ref = ["about", "services", "map", "booking", "desktop", "admin_services", "admin_map" , "admin_profile", "user_desktop", "user_booking", "user_favorites", "user_profile", "super_admin_desktop", "super_admin_business", "super_admin_create"];
+	var content = ["about", "services", "map", "booking", "desktop", "admin_services", "admin_map", "admin_profile", "user_desktop", "user_booking", "user_favorites", "user_profile", "super_admin_desktop", "super_admin_business", "super_admin_create"];
 	var destiny = 'content/' + content[ref.indexOf(menu)];
 	
 	if (window.XMLHttpRequest) // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -25,6 +25,27 @@ function loadXMLDoc(menu) {
 	}
 	xmlhttp.open("GET",destiny,true);
 	xmlhttp.send();
+}
+
+/**
+ * Carga dinámica de contenido
+ * @param url
+ * @param params
+ */
+function loadXMLDocs(url,params){
+	var req;
+	
+	if (window.XMLHttpRequest) 
+		req = new XMLHttpRequest();
+	else
+		req = new ActiveXObject("Microsoft.XMLHTTP");
+	
+	req.onreadystatechange = function(){
+	if (req.readyState==4 && req.status==200)
+		document.getElementById("content").innerHTML=req.responseText;
+	}		
+	req.open("GET", url + '?' + params, true); 
+	req.send();	
 }
 
 /**
